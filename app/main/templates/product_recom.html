@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+
+        <link rel="stylesheet" href="/static/css/product_recom.css">
+        
+    </head>
+    <body>
+        <a href="/" class="tag">首頁</a>
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="notification {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class="row">
+          <div class="main">
+            <select id="selection" onchange="showRecom()">
+                <!-- <option>Select A Product</option>
+                <option value="B005LERHD8">JewelrieShop Vintage Retro Colorful Crystal Owl Pendant Long Chain Necklace with Antiqued Bronze Finish</option>
+                <option value="B008WYDP1C">Allegra K Women's Long Sleeves Skull Stars Loose Tunic Shirt</option>
+                <option value="B005GYGD7O">Spalding Women's Capri Legging</option>
+                <option value="B00CKGB85I">Azules Women'S Rayon Span Maxi Skirt - Solid</option>
+                <option value="B007RD9DS8">Leegoal Retro Peacock Crystal Necklace Pendant Jewelry Vintage Style</option>
+                <option value="B007WA3K4Y">Allegra K Women's Tie-Bow Neck Striped Blouse Long Sleeve Shirt Office Work Shirt Tops</option>
+                <option value="B0067GUM2W">CHOP MALL Vintage Big Eye Owl Head Pendant Necklace for Women Lady</option>
+                <option value="B007WNWEFC">Vintage Steampunk Nautical Style Antiqued Bronze Octopus Necklace 28 inch Long Chain</option>
+                <option value="B0008EOEPK">Lee Men's Regular Fit Straight Leg Jean</option>
+                <option value="B002RADHJC">Glamorise Women's Full Figure No Bounce Plus Size Camisole Wirefree Back Close Sports Bra #1066</option> -->
+            </select>
+          </div>
+        </div>
+        <div id="selected">
+        </div>
+        <div id="products">
+        </div>
+        <footer>
+          <div class="row">
+          </div>
+        </footer>
+        <script src="/static/js/vendor/disTime.min.js"></script>
+        <script src="/static/js/product_recom.js"></script>
+    </body>
+</html>

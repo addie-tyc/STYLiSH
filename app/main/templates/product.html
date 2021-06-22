@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{% block title %}STYiSH Admin{% endblock %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/static/css/normalize.min.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+        
+    </head>
+    <body>
+
+        <header>
+
+          <div class="row">
+
+            <div class="grid-33">
+
+              <a href="{{ url_for('admin.product') }}" class="icon-logo"></a>
+
+            </div>
+
+            <div class="grid-33">
+                
+                <!-- Say Hi -->
+                <h1>{% if session.get('logged_in') %} {{ session["email"] }}
+                    {% else %} Please follow the instruction 
+                    {% endif %}</h1> 
+
+            </div>
+
+            <div class="grid-33">
+                
+            </div>
+
+          </div>
+
+        </header>
+
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="notification {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class="row">
+
+          <div class="main">
+
+            <nav>
+
+              <a href="{{ url_for('admin.product') }}">Add Product</a>
+           
+            </nav>
+            <h1>You will need to enter variants in the next page.</h1>
+            <form method="POST" action="" enctype=multipart/form-data>
+                <div>
+                    <label>title</label>
+                    <input name="title" placeholder="">
+                </div>
+                <div>
+                    <label>description	</label>
+                    <input name="description" placeholder="">
+                </div>
+                <div>
+                    <label>price</label>
+                    <input type="price" name="price" placeholder="Interger only">
+                </div>
+                <div>
+                    <label>texture</label>
+                    <input name="texture" placeholder="">
+                </div>
+                <div>
+                    <label>wash</label>
+                    <input name="wash" placeholder="">
+                </div>
+                <div>
+                    <label>place</label>
+                    <input name="place" placeholder="">
+                </div>
+                <div>
+                    <label>note</label>
+                    <input name="note" placeholder="">
+                </div>
+                <div>
+                    <label>story</label>
+                    <input name="story" placeholder="">
+                </div>
+                <div>
+                    <label>category</label>
+                    <input type="number" name="category" placeholder="0 for accessories, 1 for men, 2 for women">
+                </div>
+                <div>
+                    <label>main_image</label>
+                    <input type="file" name="main_image" accept=".jpg,.JPG,.png,.PNG">
+                </div>
+                <div>
+                    <label>images</label>
+                    <input type="file" name="images" accept=".jpg,.JPG,.png,.PNG" multiple>
+                </div>
+                <div>
+                    <button type="submit" name="submit"> Submit </button>
+                </div>
+            </form>
+
+
+          </div>
+
+        </div>
+
+        <footer>
+
+          <div class="row">
+
+            <p>STYLiSH Admin built with Flask<br>by Addie</a></p>
+
+          </div>
+
+        </footer>
+
+        <script src="/static/js/vendor/disTime.min.js"></script>
+        <script src="/static/js/main.js"></script>
+
+    </body>
+</html>
